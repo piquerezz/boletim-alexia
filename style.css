@@ -22,15 +22,15 @@ body {
   background-color: var(--fundo);
   color: var(--texto);
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  padding: 24px 16px 60px;
+  padding: 16px 16px 32px;
   line-height: 1.5;
 }
 
 /* ===== CABEÇALHO ===== */
 .cabecalho {
   text-align: center;
-  margin-bottom: 32px;
-  padding-bottom: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
   border-bottom: 3px solid var(--azul-marinho);
 }
 
@@ -50,8 +50,8 @@ body {
 .cards-resumo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
 .card {
@@ -59,10 +59,10 @@ body {
   border: 1px solid var(--borda-card);
   border-left: 5px solid var(--azul-marinho);
   border-radius: 12px;
-  padding: 18px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -175,4 +175,3 @@ body {
     font-size: 0.85rem;
   }
 }
-  
