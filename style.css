@@ -1,0 +1,168 @@
+/* ===== RESET E BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Cores principais do tema */
+  --fundo: #0b1020;
+  --fundo-card: #121a30;
+  --borda-card: #1f2b4a;
+  --azul-neon: #00e5ff;
+  --vermelho-neon: #ff3b6b;
+  --texto: #e8f1ff;
+  --texto-suave: #9fb0cc;
+}
+
+body {
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  padding: 24px 16px 60px;
+  line-height: 1.5;
+}
+
+/* ===== CABEÇALHO ===== */
+.cabecalho {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.cabecalho h1 {
+  font-size: 2rem;
+  color: var(--azul-neon);
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+}
+
+.subtitulo {
+  color: var(--texto-suave);
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+/* ===== CARDS DE RESUMO ===== */
+.cards-resumo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.card {
+  background-color: var(--fundo-card);
+  border: 1px solid var(--borda-card);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
+}
+
+.card-titulo {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-valor {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--azul-neon);
+}
+
+.card-extra {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+/* Cards que pedem atenção usam a cor vermelha neon */
+.card.atencao {
+  border-color: var(--vermelho-neon);
+}
+
+.card.atencao .card-valor {
+  color: var(--vermelho-neon);
+}
+
+/* ===== TABELA ===== */
+.area-tabela {
+  overflow-x: auto; /* permite rolar no celular */
+  border-radius: 12px;
+  border: 1px solid var(--borda-card);
+}
+
+.tabela-boletim {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px; /* garante leitura no celular com rolagem */
+  background-color: var(--fundo-card);
+}
+
+.tabela-boletim th,
+.tabela-boletim td {
+  padding: 12px 14px;
+  text-align: center;
+  border-bottom: 1px solid var(--borda-card);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.tabela-boletim th {
+  background-color: #0f1730;
+  color: var(--azul-neon);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tabela-boletim td:first-child,
+.tabela-boletim th:first-child {
+  text-align: left;
+}
+
+.tabela-boletim tbody tr:hover {
+  background-color: #16203a;
+}
+
+/* Situações com cores diferentes */
+.situacao-bom {
+  color: var(--azul-neon);
+  font-weight: bold;
+}
+
+.situacao-atencao {
+  color: var(--vermelho-neon);
+  font-weight: bold;
+}
+
+.situacao-indisponivel {
+  color: var(--texto-suave);
+  font-style: italic;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  .cabecalho h1 {
+    font-size: 1.6rem;
+  }
+
+  .card-valor {
+    font-size: 1.5rem;
+  }
+
+  .tabela-boletim th,
+  .tabela-boletim td {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
