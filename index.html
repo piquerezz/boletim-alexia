@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -8,48 +8,74 @@
 </head>
 <body>
 
-  <!-- Cabeçalho -->
-  <header class="cabecalho">
-    <h1>Boletim Digital</h1>
-    <p class="subtitulo">8º Ano — Estudante Exemplo</p>
-  </header>
+  <!-- Tela de acesso por PIN -->
+  <section class="tela-acesso" id="tela-acesso">
+    <div class="acesso-caixa">
+      <h1>Boletim Digital</h1>
+      <p class="acesso-serie">8º Ano — Turma 8A</p>
+      <p class="acesso-chamada">Número de chamada: 1</p>
+      <label for="campo-pin" class="acesso-label">Digite seu PIN</label>
+      <input type="password" id="campo-pin" class="acesso-input" inputmode="numeric" autocomplete="off" />
+      <button id="botao-entrar" class="acesso-botao">Entrar</button>
+      <p id="mensagem-acesso" class="acesso-mensagem"></p>
+    </div>
+  </section>
 
-  <main class="conteudo">
+  <!-- Conteúdo do boletim (escondido até o login) -->
+  <div id="conteudo-boletim" class="oculto">
 
-    <!-- Área dos cards de resumo -->
-    <section class="cards" id="cards">
-      <!-- Os cards serão criados pelo JavaScript -->
-    </section>
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+      <h1>Boletim Digital</h1>
+      <p class="subtitulo">8º Ano — Turma 8A — Nº 1</p>
+    </header>
 
-    <!-- Tabela de notas -->
-    <section class="tabela-container">
-      <h2>Notas por disciplina</h2>
-      <div class="tabela-responsiva">
-        <table>
-          <thead>
-            <tr>
-              <th>Disciplina</th>
-              <th>1º Tri</th>
-              <th>2º Tri</th>
-              <th>3º Tri</th>
-              <th>Média</th>
-              <th>Faltas</th>
-              <th>Situação</th>
-            </tr>
-          </thead>
-          <tbody id="corpo-tabela">
-            <!-- As linhas serão criadas pelo JavaScript -->
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <main class="conteudo">
 
-  </main>
+      <!-- Barra de ações -->
+      <section class="barra-acoes">
+        <button id="botao-alterar" class="botao-acao">Alterar dados</button>
+        <button id="botao-salvar" class="botao-acao botao-salvar oculto">Salvar alterações</button>
+        <button id="botao-cancelar" class="botao-acao botao-cancelar oculto">Cancelar</button>
+        <p id="mensagem-salvar" class="mensagem-salvar"></p>
+      </section>
 
-  <!-- Rodapé simples -->
-  <footer class="rodape">
-    <p>Projeto escolar — dados fictícios para demonstração.</p>
-  </footer>
+      <!-- Área dos cards de resumo -->
+      <section class="cards" id="cards">
+        <!-- Os cards serão criados pelo JavaScript -->
+      </section>
+
+      <!-- Tabela de notas -->
+      <section class="tabela-container">
+        <h2>Notas por disciplina</h2>
+        <div class="tabela-responsiva">
+          <table>
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>1º Tri</th>
+                <th>2º Tri</th>
+                <th>3º Tri</th>
+                <th>Média</th>
+                <th>Faltas</th>
+                <th>Situação</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+              <!-- As linhas serão criadas pelo JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Rodapé simples -->
+    <footer class="rodape">
+      <p>Projeto escolar — dados fictícios para demonstração.</p>
+    </footer>
+
+  </div>
 
   <script src="script.js"></script>
 </body>
