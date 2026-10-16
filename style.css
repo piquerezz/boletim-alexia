@@ -1,74 +1,95 @@
-/* ===== RESET E BASE ===== */
+/* ====== Reset básico ====== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ====== Variáveis de cor ====== */
 :root {
-  /* Cores principais do tema: branco + azul-marinho */
-  --fundo: #ffffff;
-  --fundo-card: #f4f7fc;
-  --borda-card: #d5ddea;
-  --azul-marinho: #0a2a5e;
-  --azul-medio: #1e4fa3;
-  --vermelho-alerta: #c62828;
-  --verde-bom: #1b7f4b;
-  --texto: #10203a;
-  --texto-suave: #5b6b85;
+  --turquesa: #14B8A6;
+  --azul-marinho: #1E3A8A;
+  --fundo: #F1F5F9;
+  --branco: #FFFFFF;
+  --cinza-claro: #E2E8F0;
+  --texto: #1F2937;
+  --texto-suave: #64748B;
+  --verde-claro: #DCFCE7;
+  --verde-texto: #166534;
+  --amarelo-claro: #FEF9C3;
+  --amarelo-texto: #854D0E;
 }
 
+/* ====== Corpo da página ====== */
 body {
+  font-family: "Segoe UI", Arial, sans-serif;
   background-color: var(--fundo);
   color: var(--texto);
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  padding: 16px 16px 32px;
   line-height: 1.5;
 }
 
-/* ===== CABEÇALHO ===== */
+/* ====== Cabeçalho ====== */
 .cabecalho {
+  background: linear-gradient(135deg, var(--turquesa), var(--azul-marinho));
+  color: var(--branco);
   text-align: center;
-  margin-bottom: 18px;
-  padding-bottom: 10px;
-  border-bottom: 3px solid var(--azul-marinho);
+  padding: 32px 16px;
 }
 
 .cabecalho h1 {
   font-size: 2rem;
-  color: var(--azul-marinho);
-  letter-spacing: 1px;
+  margin-bottom: 4px;
 }
 
 .subtitulo {
-  color: var(--texto-suave);
   font-size: 1rem;
-  margin-top: 6px;
+  opacity: 0.95;
 }
 
-/* ===== CARDS DE RESUMO ===== */
-.cards-resumo {
+/* ====== Conteúdo principal ====== */
+.conteudo {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* ====== Área dos cards ====== */
+.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin-bottom: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
 .card {
-  background-color: var(--fundo-card);
-  border: 1px solid var(--borda-card);
-  border-left: 5px solid var(--azul-marinho);
+  background-color: var(--branco);
   border-radius: 12px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 18px 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(10, 42, 94, 0.15);
+/* Barrinha colorida no topo do card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: var(--turquesa);
+}
+
+/* Cards alternados: turquesa e azul marinho */
+.card:nth-child(even)::before {
+  background-color: var(--azul-marinho);
+}
+
+.card-icone {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 6px;
 }
 
 .card-titulo {
@@ -76,102 +97,113 @@ body {
   color: var(--texto-suave);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-bottom: 6px;
 }
 
 .card-valor {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: bold;
   color: var(--azul-marinho);
 }
 
-.card-extra {
-  font-size: 0.8rem;
-  color: var(--texto-suave);
+.card-valor.turquesa {
+  color: var(--turquesa);
 }
 
-/* Card que pede atenção fica com a borda vermelha */
-.card.atencao {
-  border-left-color: var(--vermelho-alerta);
+/* ====== Tabela ====== */
+.tabela-container h2 {
+  margin-bottom: 12px;
+  color: var(--azul-marinho);
 }
 
-.card.atencao .card-valor {
-  color: var(--vermelho-alerta);
-}
-
-/* ===== TABELA ===== */
-.area-tabela {
-  overflow-x: auto; /* permite rolar no celular */
+.tabela-responsiva {
+  overflow-x: auto; /* Permite rolar horizontalmente no celular */
   border-radius: 12px;
-  border: 1px solid var(--borda-card);
-  box-shadow: 0 4px 14px rgba(10, 42, 94, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.tabela-boletim {
+table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 640px; /* garante leitura no celular com rolagem */
-  background-color: #ffffff;
+  background-color: var(--branco);
+  min-width: 700px; /* Garante que não fique apertado demais */
 }
 
-.tabela-boletim th,
-.tabela-boletim td {
-  padding: 12px 14px;
-  text-align: center;
-  border-bottom: 1px solid var(--borda-card);
+/* Cabeçalho da tabela */
+thead th {
+  background-color: var(--turquesa);
+  color: var(--branco);
+  padding: 12px 10px;
+  text-align: left;
   font-size: 0.9rem;
   white-space: nowrap;
 }
 
-.tabela-boletim th {
-  background-color: var(--azul-marinho);
-  color: #ffffff;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+/* Linhas zebradas */
+tbody tr:nth-child(odd) {
+  background-color: var(--branco);
 }
 
-.tabela-boletim td:first-child,
-.tabela-boletim th:first-child {
-  text-align: left;
+tbody tr:nth-child(even) {
+  background-color: var(--cinza-claro);
 }
 
-.tabela-boletim tbody tr:nth-child(even) {
-  background-color: var(--fundo-card);
+tbody td {
+  padding: 10px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #EDF2F7;
+  white-space: nowrap;
 }
 
-.tabela-boletim tbody tr:hover {
-  background-color: #e6eefb;
+/* Coluna de situação com cores */
+.situacao {
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-block;
+  font-size: 0.85rem;
 }
 
-/* Situações com cores diferentes */
-.situacao-bom {
-  color: var(--verde-bom);
-  font-weight: bold;
+.situacao.bom {
+  background-color: var(--verde-claro);
+  color: var(--verde-texto);
 }
 
-.situacao-atencao {
-  color: var(--vermelho-alerta);
-  font-weight: bold;
+.situacao.atencao {
+  background-color: var(--amarelo-claro);
+  color: var(--amarelo-texto);
 }
 
-.situacao-indisponivel {
+.situacao.indisponivel {
+  background-color: var(--cinza-claro);
+  color: var(--texto-suave);
+}
+
+/* Nota ausente */
+.nota-ausente {
   color: var(--texto-suave);
   font-style: italic;
 }
 
-/* ===== RESPONSIVO ===== */
+/* ====== Rodapé ====== */
+.rodape {
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ====== Ajustes para celular ====== */
 @media (max-width: 600px) {
   .cabecalho h1 {
-    font-size: 1.6rem;
-  }
-
-  .card-valor {
     font-size: 1.5rem;
   }
 
-  .tabela-boletim th,
-  .tabela-boletim td {
-    padding: 10px;
-    font-size: 0.85rem;
+  .card-valor {
+    font-size: 1.4rem;
+  }
+
+  .conteudo {
+    padding: 16px 10px;
   }
 }
