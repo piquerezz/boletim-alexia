@@ -410,11 +410,6 @@ function criarCard(icone, titulo, valor, corValor = "") {
 
   return card;
 }
-
-/* =========================================================
-   TELA DE ACESSO — PIN
-   ========================================================= */
-
 function mostrarMensagemAcesso(texto, tipo) {
   mensagemAcesso.textContent = texto;
   mensagemAcesso.className = "acesso-mensagem" + (tipo ? " " + tipo : "");
