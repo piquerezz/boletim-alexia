@@ -119,7 +119,7 @@ body {
 }
 
 .tabela-responsiva {
-  overflow-x: auto; /* Permite rolar horizontalmente no celular */
+  overflow-x: auto;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
@@ -128,10 +128,9 @@ table {
   width: 100%;
   border-collapse: collapse;
   background-color: var(--branco);
-  min-width: 700px; /* Garante que não fique apertado demais */
+  min-width: 700px;
 }
 
-/* Cabeçalho da tabela */
 thead th {
   background-color: var(--turquesa);
   color: var(--branco);
@@ -141,7 +140,6 @@ thead th {
   white-space: nowrap;
 }
 
-/* Linhas zebradas */
 tbody tr:nth-child(odd) {
   background-color: var(--branco);
 }
@@ -157,7 +155,6 @@ tbody td {
   white-space: nowrap;
 }
 
-/* Coluna de situação com cores */
 .situacao {
   font-weight: 600;
   border-radius: 6px;
@@ -181,7 +178,6 @@ tbody td {
   color: var(--texto-suave);
 }
 
-/* Nota ausente */
 .nota-ausente {
   color: var(--texto-suave);
   font-style: italic;
@@ -400,7 +396,6 @@ tbody td {
   background-color: var(--vermelho-claro);
 }
 
-/* Mensagens de erro abaixo dos campos */
 .erro-campo {
   display: block;
   font-size: 0.7rem;
