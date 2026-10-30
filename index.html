@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boletim Digital</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -49,22 +50,24 @@
       <section class="area-graficos">
 
         <article class="grafico-card">
-          <h2>Média por disciplina</h2>
-          <div class="grafico-container">
+          <h2 class="grafico-titulo">Média por disciplina</h2>
+          <div class="grafico-container grafico-container-alto">
             <canvas id="graficoMediasDisciplinas"></canvas>
           </div>
         </article>
 
-        <article class="grafico-card" id="cardGraficoFaltas">
-          <h2>Evolução da média geral</h2>
+        <article class="grafico-card">
+          <h2 class="grafico-titulo">Evolução da média geral</h2>
           <div class="grafico-container">
             <canvas id="graficoEvolucaoTrimestres"></canvas>
           </div>
         </article>
 
-        <article class="grafico-card" id="cardFaltas">
-          <h2>Faltas por trimestre</h2>
-          <div id="estadoFaltas" class="estado-faltas"></div>
+        <article class="grafico-card" id="cardGraficoFaltas">
+          <div class="grafico-cabecalho">
+            <h2 class="grafico-titulo">Faltas por trimestre</h2>
+            <span id="estadoFaltas" class="badge-perigo oculto">Perigo</span>
+          </div>
           <div class="grafico-container">
             <canvas id="graficoFaltasTrimestres"></canvas>
           </div>
@@ -104,8 +107,6 @@
 
   </div>
 
-  <!-- Carregamento do Chart.js antes do script principal -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
