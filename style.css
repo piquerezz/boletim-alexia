@@ -409,9 +409,10 @@ tbody td {
 }
 
 /* =========================================================
-   ESTILOS DOS GRÁFICOS
+   ESTILOS ADICIONADOS — ÁREA DOS GRÁFICOS
    ========================================================= */
 
+/* Grid responsivo: 3 colunas no desktop, 2 no tablet, 1 no celular */
 .area-graficos {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -422,65 +423,118 @@ tbody td {
 .grafico-card {
   background-color: var(--branco);
   border-radius: 12px;
-  padding: 18px 16px 20px;
+  padding: 16px 16px 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  border: 2px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.grafico-card h2 {
+/* Barrinha turquesa no topo, seguindo a identidade dos cards */
+.grafico-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: var(--turquesa);
+}
+
+.grafico-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.grafico-titulo {
   font-size: 1rem;
   color: var(--azul-marinho);
   margin-bottom: 12px;
+  font-weight: 600;
 }
 
+.grafico-cabecalho .grafico-titulo {
+  margin-bottom: 0;
+}
+
+/* Container do canvas */
 .grafico-container {
   position: relative;
   width: 100%;
-  flex-grow: 1;
-  min-height: 260px;
+  height: 220px;
+}
+
+/* Card de média por disciplina precisa de mais altura (≈15 disciplinas) */
+.grafico-container-alto {
+  height: 420px;
 }
 
 /* Badge de Perigo */
-.estado-faltas {
-  min-height: 24px;
-  margin-bottom: 8px;
-}
-
 .badge-perigo {
   display: inline-block;
-  background-color: var(--vermelho-claro);
-  color: var(--vermelho-texto);
+  padding: 3px 10px;
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: var(--vermelho-texto);
+  background-color: var(--vermelho-claro);
+  border-radius: 999px;
+  border: 1px solid #FCA5A5;
 }
 
-/* Destaque visual crítico para o card de faltas */
-.grafico-card.card-critico {
-  border-color: var(--vermelho-texto);
-  box-shadow: 0 4px 12px rgba(153, 27, 27, 0.15);
+/* Destaque do card quando a situação for crítica */
+.grafico-card.perigo {
+  border: 2px solid #DC2626;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
 }
 
-/* Breakpoints para responsividade dos gráficos */
+.grafico-card.perigo::before {
+  background-color: #DC2626;
+}
+
+/* =========================================================
+   RESPONSIVIDADE DOS GRÁFICOS
+   ========================================================= */
+
+/* Tablet: 2 colunas, média por disciplina ocupa a primeira linha inteira */
 @media (max-width: 900px) {
   .area-graficos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* O card de média por disciplina fica em largura total no tablet */
+  .area-graficos > .grafico-card:first-child {
+    grid-column: 1 / -1;
+  }
 }
 
+/* Celular: 1 coluna */
 @media (max-width: 600px) {
   .area-graficos {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .area-graficos > .grafico-card:first-child {
+    grid-column: auto;
   }
 
   .grafico-container {
-    min-height: 220px;
+    height: 200px;
+  }
+
+  .grafico-container-alto {
+    height: 460px;
+  }
+
+  .grafico-card {
+    padding: 14px 12px 16px;
   }
 }
