@@ -45,6 +45,33 @@
         <!-- Os cards serão criados pelo JavaScript -->
       </section>
 
+      <!-- Área dos gráficos -->
+      <section class="area-graficos">
+
+        <article class="grafico-card">
+          <h2>Média por disciplina</h2>
+          <div class="grafico-container">
+            <canvas id="graficoMediasDisciplinas"></canvas>
+          </div>
+        </article>
+
+        <article class="grafico-card" id="cardGraficoFaltas">
+          <h2>Evolução da média geral</h2>
+          <div class="grafico-container">
+            <canvas id="graficoEvolucaoTrimestres"></canvas>
+          </div>
+        </article>
+
+        <article class="grafico-card" id="cardFaltas">
+          <h2>Faltas por trimestre</h2>
+          <div id="estadoFaltas" class="estado-faltas"></div>
+          <div class="grafico-container">
+            <canvas id="graficoFaltasTrimestres"></canvas>
+          </div>
+        </article>
+
+      </section>
+
       <!-- Tabela de notas -->
       <section class="tabela-container">
         <h2>Notas por disciplina</h2>
@@ -77,6 +104,7 @@
 
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
