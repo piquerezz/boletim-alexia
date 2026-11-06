@@ -84,3 +84,403 @@ body {
 }
 
 /* Cards alternados: turquesa e azul marinho */
+.card:nth-child(even)::before {
+  background-color: var(--azul-marinho);
+}
+
+.card-icone {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.card-titulo {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.card-valor {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--azul-marinho);
+}
+
+.card-valor.turquesa {
+  color: var(--turquesa);
+}
+
+/* ====== Tabela ====== */
+.tabela-container h2 {
+  margin-bottom: 12px;
+  color: var(--azul-marinho);
+}
+
+.tabela-responsiva {
+  overflow-x: auto; /* Permite rolar horizontalmente no celular */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--branco);
+  min-width: 700px; /* Garante que não fique apertado demais */
+}
+
+/* Cabeçalho da tabela */
+thead th {
+  background-color: var(--turquesa);
+  color: var(--branco);
+  padding: 12px 10px;
+  text-align: left;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Linhas zebradas */
+tbody tr:nth-child(odd) {
+  background-color: var(--branco);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--cinza-claro);
+}
+
+tbody td {
+  padding: 10px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #EDF2F7;
+  white-space: nowrap;
+}
+
+/* Coluna de situação com cores */
+.situacao {
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+.situacao.bom {
+  background-color: var(--verde-claro);
+  color: var(--verde-texto);
+}
+
+.situacao.atencao {
+  background-color: var(--amarelo-claro);
+  color: var(--amarelo-texto);
+}
+
+.situacao.indisponivel {
+  background-color: var(--cinza-claro);
+  color: var(--texto-suave);
+}
+
+/* Nota ausente */
+.nota-ausente {
+  color: var(--texto-suave);
+  font-style: italic;
+}
+
+/* ====== Rodapé ====== */
+.rodape {
+  text-align: center;
+  padding: 20px 16px;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ====== Ajustes para celular ====== */
+@media (max-width: 600px) {
+  .cabecalho h1 {
+    font-size: 1.5rem;
+  }
+
+  .card-valor {
+    font-size: 1.4rem;
+  }
+
+  .conteudo {
+    padding: 16px 10px;
+  }
+}
+
+/* =========================================================
+   ESTILOS ADICIONADOS — TELA DE ACESSO, EDIÇÃO E AÇÕES
+   ========================================================= */
+
+/* Esconde elementos */
+.oculto {
+  display: none !important;
+}
+
+/* Tela de acesso por PIN */
+.tela-acesso {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--turquesa), var(--azul-marinho));
+  padding: 16px;
+}
+
+.acesso-caixa {
+  background-color: var(--branco);
+  border-radius: 16px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.acesso-caixa h1 {
+  color: var(--azul-marinho);
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.acesso-serie {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--turquesa);
+}
+
+.acesso-chamada {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  margin-bottom: 20px;
+}
+
+.acesso-label {
+  display: block;
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.acesso-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  text-align: center;
+  letter-spacing: 4px;
+  border: 2px solid var(--cinza-claro);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.acesso-input:focus {
+  border-color: var(--turquesa);
+}
+
+.acesso-botao {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--branco);
+  background: linear-gradient(135deg, var(--turquesa), var(--azul-marinho));
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.acesso-botao:hover {
+  opacity: 0.9;
+}
+
+.acesso-botao:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.acesso-mensagem {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.acesso-mensagem.erro {
+  color: var(--vermelho-texto);
+}
+
+.acesso-mensagem.info {
+  color: var(--texto-suave);
+}
+
+/* Barra de ações (alterar / salvar / cancelar) */
+.barra-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.botao-acao {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.botao-acao:hover {
+  opacity: 0.9;
+}
+
+.botao-acao:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#botao-alterar {
+  background-color: var(--azul-marinho);
+  color: var(--branco);
+}
+
+.botao-salvar {
+  background-color: var(--turquesa);
+  color: var(--branco);
+}
+
+.botao-cancelar {
+  background-color: var(--cinza-claro);
+  color: var(--texto);
+}
+
+.mensagem-salvar {
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.mensagem-salvar.sucesso {
+  color: var(--verde-texto);
+}
+
+.mensagem-salvar.erro {
+  color: var(--vermelho-texto);
+}
+
+.mensagem-salvar.info {
+  color: var(--texto-suave);
+}
+
+/* Campos de edição dentro da tabela */
+.campo-edicao {
+  width: 70px;
+  padding: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 2px solid var(--cinza-claro);
+  border-radius: 6px;
+  outline: none;
+}
+
+.campo-edicao:focus {
+  border-color: var(--turquesa);
+}
+
+.campo-edicao.invalido {
+  border-color: #DC2626;
+  background-color: var(--vermelho-claro);
+}
+
+/* Mensagens de erro abaixo dos campos */
+.erro-campo {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--vermelho-texto);
+  margin-top: 2px;
+}
+
+/* =========================================================
+   ESTILOS DOS GRÁFICOS
+   ========================================================= */
+
+.area-graficos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.grafico-card {
+  background-color: var(--branco);
+  border-radius: 12px;
+  padding: 18px 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  border: 2px solid transparent;
+}
+
+.grafico-card h2 {
+  font-size: 1rem;
+  color: var(--azul-marinho);
+  margin-bottom: 12px;
+}
+
+.grafico-container {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  min-height: 260px;
+}
+
+/* Badge de Perigo */
+.estado-faltas {
+  min-height: 24px;
+  margin-bottom: 8px;
+}
+
+.badge-perigo {
+  display: inline-block;
+  background-color: var(--vermelho-claro);
+  color: var(--vermelho-texto);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Destaque visual crítico para o card de faltas */
+.grafico-card.card-critico {
+  border-color: var(--vermelho-texto);
+  box-shadow: 0 4px 12px rgba(153, 27, 27, 0.15);
+}
+
+/* Breakpoints para responsividade dos gráficos */
+@media (max-width: 900px) {
+  .area-graficos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .area-graficos {
+    grid-template-columns: 1fr;
+  }
+
+  .grafico-container {
+    min-height: 220px;
+  }
+}
